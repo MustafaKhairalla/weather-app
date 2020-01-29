@@ -17,13 +17,13 @@ var cities = [];
 
 //var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + userSearch + "&appid=166a433c57516f51dfab1f7edaed8413&units=imperial"
 
-function genButton(){
-    $("<buttom>").remove();
-    for (var i=0 ; i < cities.length ; i++){
-        var newBtn = $("<button>").text(cities[i])
+function genButton(userSearch){
+    
+   console.log(userSearch)
+        var newBtn = $("<button>").text(userSearch)
         newBtn.attr("class" , "btn btn-lg btn-block");
         $("#list-btn").append(newBtn);
-    }
+     
 }
 
 var apiKey = "676eed284e8d18337ac8c1125af2a4a6"
@@ -36,8 +36,10 @@ $("#submit").click(function(){
     event.preventDefault();
     //var result = $(".form-control").val();
     var userSearch = $(".form-control").val();
+   
     cities.push(userSearch);
-    genButton()
+  
+    genButton(userSearch)
     //var arr1 = cities[0];
     //btn1.text(arr1);
     //userSearch = result;
